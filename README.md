@@ -1,1 +1,0 @@
-# lcIgyc.github.io
