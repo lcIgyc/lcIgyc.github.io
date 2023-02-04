@@ -4,9 +4,188 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>gyc (lc) の Website V1.0.2</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+        }
+        .box1{
+            width: 200px;
+            height: 100%;
+            background-color: darkcyan;
+            float: left;
+        }
+        .box2{
+            height: 100%;
+            background-color: aquamarine;
+            margin-left: 200px;
+            width: calc(100%-200px);
+        }
+        .lan{
+            width: 180px;
+            padding: 10px;
+            height: 80px;
+            line-height: 80px;
+            color: aliceblue;
+            text-align: center;
+            font-size: 18px;
+        }
+        .lan:hover{
+            width: 200px;
+            background-color: rgb(37, 207, 190);
+            font-size: larger;
+        }
+        .back{
+            height: 80px;
+            line-height: 90px;
+            bottom: 10px;
+            padding: 20px;
+            color: darkkhaki;
+        }
+        .back:hover{
+            font-size: large;
+        }
+        a:link{
+        text-decoration:none;
+        color: darkkhaki;
+        }
+
+        /*------------------------------------------------------*/
+        /* 弹窗 */
+        .btn-alert{
+            display: block;
+            width: 400px;
+            height: 100px;
+            line-height: 100px;
+            background-color: #fff;
+            border-radius: 10px;
+            color: rgb(90, 90, 90);
+            font-size: 40px;
+            margin: 20px auto 0;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 5px;
+            box-shadow: 0 0 5px #fff;
+        }
+        /* 遮罩层 */
+        .alert{
+            display: none;
+            justify-content: center;
+            /*align-items: center;*/
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,.4);
+            position: fixed;
+            top:0;
+            left: 0;
+        }
+        .alert-body{
+            width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            font-size: 15px;
+            color: #000;
+            /*text-align: center;       */
+            animation: moveFromBottom .3s linear;     
+        }
+        .alert-title{
+            line-height: 50px;
+            border-bottom: 2px solid #eee;
+            font-size: 20px;
+            position: relative;
+        }
+        .close{
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            position: absolute;
+            top: 30px; 
+            right: 30px;
+            cursor: pointer;
+        }
+        .close:hover{
+            color: rgb(91, 161, 231);
+        }
+        .alert-content{
+            display: flex;
+            /*justify-content: center;*/
+            /*align-items: center;*/
+            height: 50px;
+            color: #999;
+        }
+        @keyframes moveFromTop{
+            0%{
+                margin-top: -600px;
+            }
+            100%{
+                margin-top: 0;
+            }
+        }
+        @keyframes moveFromBottom{
+            0%{
+                margin-bottom: -600px;
+            }
+            100%{
+                margin-bottom: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    作者很懒，暂时还不想做
+    <div class="box1">
+        <ul>
+            <li class="lan">Home</li>
+            <li class="lan">About</li>
+            <li class="lan">Work</li>
+            <li class="lan">Interest</li>
+            <li class="lan">Experience</li>
+            <li class="lan">Others</li>
+        </ul>
+        <a href="../index.html"><div class="back">Back</div></a>
+    </div>
+    <div class="box2"></div>
+
+
+    <!-- 弹窗 -->
+    <div class="alert">
+        <div class="alert-body">
+            <div class="alert-title" style="text-align: center;">网站公告 v1.0.2<div class="close">x</div></div>
+            <br class="alert-content">
+                <p style="text-indent:2em">致诸位尊敬的访客：</p></br>
+                <p style="text-indent:5em">欢迎诸位来到【gyc (lc) の Website 】！</p></br>
+                <p style="text-indent:5em">当前版本号为 V1.0.2</p></br></br>
+                <p style="text-indent:5em">为保证网站的稳定运行,【gyc(lc)のWebsite】将于每周周日晚22:00进行维护</p></br>
+                <p style="text-indent:5em">希望各位访客浏览得开心，一起携手维护网站的秩序</p></br></br>
+                <p style="text-indent:5em">本次版本更新内容:</p></br>
+                <p style="text-indent:5em">优化了首页博客“泡泡”的浮动效果,</p></br>
+                <p style="text-indent:5em">优化了进入网站的效果,</p></br>
+                <p style="text-indent:5em">加入公告界面元素,</p></br>
+                <p style="text-indent:5em">加入个人界面元素（粗糙制作）</p></br></br>
+                <p style="text-indent:5em">公告会随版本号更新而更新内容，届时会向各位访客推出，感谢各位访客！</p></br></br></br>
+                <p style="text-indent: 30em;">真挚的 Lc(gyc).</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let alertEl=document.querySelector('.alert')
+
+        alertEl.style.display='flex'
+        //获得关闭按钮
+        let btnClose=document.querySelector('.close')
+        btnClose.onclick=function(){
+            alertEl.style.display='none'
+        }
+        alertEl.onclick=function(e){
+            console.log(e)
+            if(e.target==alertEl){
+                alertEl.style.display='none'
+            }
+        }
+    </script>
 </body>
 </html>
