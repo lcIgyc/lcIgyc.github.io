@@ -82,19 +82,30 @@
             position: fixed;
             top:0;
             left: 0;
+            
         }
+        @keyframes appear{
+            0%{
+                transform: translateY(-100%);
+            }
+            100%{
+                transform: translateY(0);
+            }
+      }
         .alert-body{
             width: 600px;
-            background-color: #fff;
+            background-color: rgb(247, 231, 193);
+            border: 5px solid rgb(255, 231, 113);
             border-radius: 10px;
             font-size: 15px;
-            color: #000;
+            color: rgb(118, 69, 4);
             /*text-align: center;       */
-            animation: moveFromBottom .3s linear;     
+            animation: moveFromBottom .3s linear;    
+            animation: appear 1.2s linear 
         }
         .alert-title{
             line-height: 50px;
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid rgb(250, 199, 136);
             font-size: 20px;
             position: relative;
         }
@@ -175,6 +186,7 @@
         let alertEl=document.querySelector('.alert')
 
         alertEl.style.display='flex'
+        //获得关闭按钮
         let btnClose=document.querySelector('.close')
         btnClose.onclick=function(){
             alertEl.style.display='none'
